@@ -1,2 +1,2 @@
-# JavaScript-BROCKGAME
+# JavaScript-BLOCKGAME
 JavaScriptでブロックゲームを作る。
