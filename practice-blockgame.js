@@ -53,6 +53,36 @@ class Field{
     }
 }
 
+class Mino{
+    constructor(x,y,rot,shape){
+        this.x = x;
+        this.y = y;
+        this.rot = rot;
+        this.shape = shape;
+    }
+    calcBlock(){
+        let block = [
+            new Block(-1,0),
+            new Block(0,0),
+            new Block(0,-1),
+            new Block(1,0)
+        ];
+        for(let r=0; r<this.rot; rot++){
+            //  rotate 90
+            // blocks.forEach(b => (b.x=-b.y,b.y=b.x))
+            blocks = blocks.map(b => new Block(-b.y, b.x));
+        }
+        return block;
+    }
+    draw(){
+        let blocks = this.calcBlock();
+        blocks.forEach(b => (b.x=this.x, b.y=this.y));
+        for(let b of blocks){
+            b.draw();
+        }
+    }
+}
+
 // p5jsのライブラリを読み込む関数
 function setup(){
     createCanvas(400,600);
