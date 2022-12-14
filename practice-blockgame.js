@@ -87,19 +87,29 @@ class Mino{
 class Game{
     constructor(){
         this.mino = new Mino(5,10,0,0);
+        this.minoVx = 0;
         this.field = new Field();
         this.fc = 0;
     }
+    // 描画処理
     proc(){
+        if(this.minoVx !== 0){
+            this.mino.x += this.minoVx;
+            this.minoVx = 0;
+        }
 
         background(64);
         this.mino.draw();
         this.field.draw();
-
         this.fc++;
     }
 }
 let game;
+
+function keyPressed(){
+    if(keyCode === 65) game.minoVx = -1;
+    if(keyCode === 68) game.minoVx = 1;
+}
 
 // p5jsのライブラリを読み込む関数
 function setup(){
